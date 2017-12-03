@@ -1,0 +1,18 @@
+{
+  "name": "vk-chat-bot-example",
+  "version": "1.0.0",
+  "description": "Example chat bot for VK using vk-chat-bot npm package.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudoio/vk-chat-bot-example.git"
+  },
+  "author": "sudoio",
+  "license": "MIT",
+  "dependencies": {
+    "vk-chat-bot": "^2.1.7"
+  }
+}
