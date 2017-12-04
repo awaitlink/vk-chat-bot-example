@@ -19,20 +19,20 @@ var params = {
 
 bot.init(params);
 
-bot.on("message_allow", (uid) => {
+bot.on("message_allow", (obj) => {
   return "Hello, thanks for allowing us to send you messages.";
 });
 
-bot.on("no_match", (uid) => {
+bot.on("no_match", (obj) => {
   return "I don't know how to respond to your message.";
 });
 
-bot.cmd("test", (msg) => {
-  return "Test success! Your message content (excluding command) was: \"" + msg + "\".";
+bot.cmd("test", (msg, obj) => {
+  return "Test success! Your message content (excluding command) was: '" + msg + "'.";
 });
 
-bot.regex("(hi|hello|hey)", (msg) => {
-  return "Hello, I am a test bot.";
+bot.regex("(hi|hello|hey)", (msg, obj) => {
+  return "Hello, I am a test bot. You said: " + msg;
 });
 
 bot.start(port);
