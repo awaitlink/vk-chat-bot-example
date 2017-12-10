@@ -27,8 +27,12 @@ bot.on("no_match", (obj) => {
   return "I don't know how to respond to your message.";
 });
 
-bot.cmd("test", (msg, obj) => {
+bot.cmd("test", "test command", (msg, obj) => {
   return "Test success! Your message content (excluding command) was: '" + msg + "'.";
+});
+
+bot.cmd("help", "shows help", (msg, obj) => {
+  return "Test Bot v1.0" + bot.help();
 });
 
 bot.regex("(hi|hello|hey)", (msg, obj) => {

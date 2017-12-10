@@ -13,6 +13,6 @@
   "author": "sudoio",
   "license": "MIT",
   "dependencies": {
-    "vk-chat-bot": "^3.0.4"
+    "vk-chat-bot": "^3.1.0"
   }
 }
