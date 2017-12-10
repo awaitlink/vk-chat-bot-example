@@ -1,5 +1,8 @@
 const bot = require('vk-chat-bot');
 
+// For easy time formatting
+const moment = require('moment');
+
 // Server port
 const port = process.env.PORT;
 
@@ -27,12 +30,26 @@ bot.on("no_match", (obj) => {
   return "I don't know how to respond to your message.";
 });
 
-bot.cmd("test", "test command", (msg, obj) => {
-  return "Test success! Your message content (excluding command) was: '" + msg + "'.";
+bot.cmd("test", "sure thing tests something", (msg, obj) => {
+  return "Test success! Your message content was: '" + msg + "'.";
 });
 
-bot.cmd("help", "shows help", (msg, obj) => {
+bot.cmd("help", "shows the help message", (msg, obj) => {
   return "Test Bot v1.0" + bot.help();
+});
+
+bot.cmd("time", "reports the current time in UTC", (msg, obj) => {
+  var m = moment();
+  m.utc();
+  time = m.format('hh:mm:ss');
+  return "It is " + time + " (UTC) now.";
+});
+
+bot.cmd("date", "reports the current date in UTC", (msg, obj) => {
+  var m = moment();
+  m.utc();
+  date = m.format('MMMM Do YYYY [(]dddd[)]');
+  return "It is " + date + " (UTC) now.";
 });
 
 bot.regex("(hi|hello|hey)", (msg, obj) => {
