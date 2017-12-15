@@ -1,4 +1,4 @@
-const bot = require('vk-chat-bot');
+const ChatBot = require('vk-chat-bot');
 
 // For easy time formatting
 const moment = require('moment');
@@ -20,7 +20,7 @@ var params = {
   cmd_prefix: process.env.CMD_PREFIX
 }
 
-bot.init(params);
+bot = new ChatBot(params);
 
 bot.on("message_allow", (obj) => {
   return "Hello, thanks for allowing us to send you messages.";
