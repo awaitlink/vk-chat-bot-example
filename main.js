@@ -20,40 +20,44 @@ var params = {
   cmd_prefix: process.env.CMD_PREFIX
 }
 
+// initialize the bot
 bot = new ChatBot(params);
 
-bot.on("message_allow", (obj) => {
-  return "Hello, thanks for allowing us to send you messages.";
+// When user allowed to send messages to him
+bot.on("message_allow", ($) => {
+  $.text("Hello, thanks for allowing us to send you messages.");
 });
 
-bot.on("no_match", (obj) => {
-  return "I don't know how to respond to your message.";
+// If no matching handler is found
+bot.on("no_match", ($) => {
+  $.text("I don't know how to respond to your message.");
 });
 
-bot.cmd("test", "sure thing tests something", (msg, obj) => {
-  return "Test success! Your message content was: '" + msg + "'.";
+// Example: if cmd_prefix is "/", we search for "/test"
+bot.cmd("test", "sure thing tests something", ($) => {
+  $.text("Test success! Your message content was: '" + $.msg + "'.");
 });
 
-bot.cmd("help", "shows the help message", (msg, obj) => {
-  return "Test Bot v1.0" + bot.help();
+// Example: if cmd_prefix is "/", we search for "/help"
+bot.cmd("help", "shows the help message", ($) => {
+  // bot.help() returns the help message
+  $.text("Test Bot v1.0" + bot.help());
 });
 
-bot.cmd("time", "reports the current time in UTC", (msg, obj) => {
-  var m = moment();
-  m.utc();
-  time = m.format('hh:mm:ss');
-  return "It is " + time + " (UTC) now.";
+// When the message contains a word "hi", "hello" or "hey"
+// Ignoring case with /i
+bot.regex(/(hi|hello|hey)/gi, ($) => {
+  $.text("Hello, I am a test bot. You said: " + $.msg);
 });
 
-bot.cmd("date", "reports the current date in UTC", (msg, obj) => {
-  var m = moment();
-  m.utc();
-  date = m.format('MMMM Do YYYY [(]dddd[)]');
-  return "It is " + date + " (UTC) now.";
+bot.cmd("time", "reports the current time in UTC", ($) => {
+  var m = moment(); m.utc(); time = m.format('hh:mm:ss');
+  $.text("It is " + time + " UTC now.");
 });
 
-bot.regex("(hi|hello|hey)", (msg, obj) => {
-  return "Hello, I am a test bot. You said: " + msg;
+bot.cmd("date", "reports the current date in UTC", ($) => {
+  var m = moment(); m.utc(); date = m.format('MMMM Do YYYY [(]dddd[)]');
+  $.text("It is " + date + " UTC now.");
 });
 
 bot.start(port);
