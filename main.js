@@ -46,7 +46,7 @@ bot.cmd("help", "shows the help message", ($) => {
 
 // When the message contains a word "hi", "hello" or "hey"
 // Ignoring case with /i
-bot.regex(/(hi|hello|hey)/gi, ($) => {
+bot.regex(/h(i|ello|ey)/i, ($) => {
   $.text("Hello, I am a test bot. You said: " + $.msg);
 });
 
