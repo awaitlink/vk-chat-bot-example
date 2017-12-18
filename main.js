@@ -50,14 +50,9 @@ bot.regex(/h(i|ello|ey)/i, ($) => {
   $.text("Hello, I am a test bot. You said: " + $.msg);
 });
 
-bot.cmd("time", "reports the current time in UTC", ($) => {
-  var m = moment(); m.utc(); time = m.format('hh:mm:ss');
-  $.text("It is " + time + " UTC now.");
-});
-
-bot.cmd("date", "reports the current date in UTC", ($) => {
-  var m = moment(); m.utc(); date = m.format('MMMM Do YYYY [(]dddd[)]');
-  $.text("It is " + date + " UTC now.");
+bot.cmd("now", "reports the current date and time in UTC", ($) => {
+  var m = moment(); m.utc(); now = m.format('MMMM Do YYYY [(]dddd[)] hh:mm:ss A');
+  $.text("It is " + now + " UTC now.");
 });
 
 bot.start(port);
