@@ -42,6 +42,9 @@ bot.cmd('test', 'sure thing tests something', ($) => {
 bot.cmd('help', 'shows the help message', ($) => {
   // bot.help() returns the help message
   $.text('Test Bot v1.0' + bot.help())
+
+  // Attach a nice image from https://vk.com/team?z=photo6492_456240778
+  $.attach('photo', 6492, 456240778)
 })
 
 // When the message contains a word "hi", "hello" or "hey"
