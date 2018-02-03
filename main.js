@@ -16,6 +16,7 @@ var bot = new ChatBot(params) // Initialize the bot
 
 bot.on('message_allow', $ => {
   $.text('Hello, thanks for allowing us to send you messages.')
+  // $.send() is called automatically after the handler
 })
 
 bot.on('no_match', $ => {
@@ -32,7 +33,9 @@ bot.cmd('help', 'shows the help message', $ => {
 })
 
 bot.cmd('now', 'reports the current date and time in UTC', $ => {
+  // Format time using 'moment' library
   var now = moment().utc().format('MMMM Do YYYY [(]dddd[)] hh:mm:ss A')
+
   $.text('It is ' + now + ' UTC now.')
 })
 
@@ -45,7 +48,10 @@ bot.cmd('info', 'gets some information about you', $ => {
     var surname = userInfo.last_name
 
     $.text('User ID: ' + $.uid + '\nName: ' + name + ' ' + surname)
-    $.send() // Because the API request may finish after the handler finishes, make sure to send() the message
+
+    // Because the API request may finish after the handler,
+    // make sure to send() the message
+    $.send()
   })
 })
 
