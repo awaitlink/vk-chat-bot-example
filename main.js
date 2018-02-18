@@ -19,6 +19,10 @@ bot.on('message_allow', $ => {
   // $.send() is called automatically after the handler
 })
 
+bot.on('message_edit', $ => {
+  $.text('You edited a message, now it looks like this: ' + $.msg)
+})
+
 bot.on('no_match', $ => {
   $.text("I don't know how to respond.")
 })
