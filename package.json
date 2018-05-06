@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sudoio/vk-chat-bot-example.git"
+    "url": "https://github.com/u32i64/vk-chat-bot-example.git"
   },
-  "author": "sudoio",
+  "author": "u32i64",
   "license": "MIT",
   "dependencies": {
     "moment": "^2.19.3",
