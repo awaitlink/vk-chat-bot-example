@@ -44,14 +44,15 @@ bot.cmd('now', 'reports the current date and time in UTC', $ => {
 })
 
 bot.cmd('info', 'gets some information about you', $ => {
+  var uid = $.obj.from_id
   // Call VK API to get information about the user
-  $.api.scheduleCall('users.get', { user_ids: $.uid }, (json) => {
+  $.api.scheduleCall('users.get', { user_ids: uid }, (json) => {
     var userInfo = json.response[0]
 
     var name = userInfo.first_name
     var surname = userInfo.last_name
 
-    $.text('User ID: ' + $.uid + '\nName: ' + name + ' ' + surname)
+    $.text('User ID: ' + uid + '\nName: ' + name + ' ' + surname)
 
     // Because the API request may finish after the handler,
     // make sure to send() the message

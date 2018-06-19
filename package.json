@@ -13,7 +13,7 @@
   "author": "u32i64",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.19.3",
-    "vk-chat-bot": "^5.4.2"
+    "moment": "^2.22.2",
+    "vk-chat-bot": "^6.0.0"
   }
 }
