@@ -4,7 +4,7 @@ const moment = require('moment') // For easy time formatting
 const port = process.env.PORT // Server port
 
 var params = {
-  vk_api_key: process.env.VK_API_KEY,
+  vk_token: process.env.VK_API_KEY,
   confirmation_token: process.env.CONFIRMATION_TOKEN, // Can be found in group Callback API settings
   group_id: process.env.GROUP_ID, // Can be found in group Callback API settings
   secret: process.env.SECRET, // Secret key, set it in group Callback API settings
