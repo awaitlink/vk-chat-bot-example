@@ -32,22 +32,22 @@ bot.on('no_match', $ => {
 })
 
 // If cmd_prefix is "/", we search for "/help" in the beginning of the message
-bot.cmd('help', 'shows the help message', $ => {
+bot.cmd('help', $ => {
   // bot.help() returns the full help message
   $.text('Test Bot v1.0' + bot.help())
 
   // Attach a nice image from https://vk.com/team?z=photo6492_456240778
   $.attach('photo', 6492, 456240778)
-})
+}, 'shows the help message')
 
-bot.cmd('now', 'reports the current date and time in UTC', $ => {
+bot.cmd('now', $ => {
   // Format time using 'moment' library
   var now = moment().utc().format('MMMM Do YYYY [(]dddd[)] hh:mm:ss A')
 
   $.text('It is ' + now + ' UTC now.')
-})
+}, 'reports the current date and time in UTC')
 
-bot.cmd('info', 'gets some information about you', $ => {
+bot.cmd('info', $ => {
   var uid = $.obj.from_id
   // Call VK API to get information about the user
   $.api.scheduleCall('users.get', { user_ids: uid }, (json) => {
@@ -62,7 +62,7 @@ bot.cmd('info', 'gets some information about you', $ => {
     // make sure to send() the message
     $.send()
   })
-})
+}, 'uses VK API to get some information about you')
 
 // When the message contains a word "hi", "hello" or "hey"
 // Ignoring case with /i
