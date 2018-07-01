@@ -62,6 +62,9 @@ bot.cmd('info', $ => {
     // make sure to send() the message
     $.send()
   })
+
+  // Prevent the handler from sending the message automatically
+  $.noAutoSend()
 }, 'uses VK API to get some information about you')
 
 // When the message contains a word "hi", "hello" or "hey"
