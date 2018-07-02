@@ -14,6 +14,6 @@
   "license": "MIT",
   "dependencies": {
     "moment": "^2.22.2",
-    "vk-chat-bot": "^8.2.2"
+    "vk-chat-bot": "^8.3.0"
   }
 }

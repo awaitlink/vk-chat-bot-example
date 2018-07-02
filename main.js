@@ -73,4 +73,6 @@ bot.regex(/h(i|ello|ey)/i, $ => {
   $.text('Hello, I am a test bot. You said: ' + $.msg)
 })
 
+bot.noEventWarnings() // Prevent warnings about missing event handlers
+
 bot.start(port)
