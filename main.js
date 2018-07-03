@@ -31,6 +31,10 @@ bot.on('no_match', $ => {
   $.text("I don't know how to respond.")
 })
 
+bot.on('handler_error', $ => {
+  $.text("Oops, looks like something went wrong.")
+})
+
 // If cmd_prefix is "/", we search for "/help" in the beginning of the message
 bot.cmd('help', $ => {
   // bot.help() returns the full help message
@@ -47,24 +51,16 @@ bot.cmd('now', $ => {
   $.text('It is ' + now + ' UTC now.')
 }, 'reports the current date and time in UTC')
 
-bot.cmd('info', $ => {
+bot.cmd('info', async $ => {
   var uid = $.obj.from_id
   // Call VK API to get information about the user
-  $.api.scheduleCall('users.get', { user_ids: uid }, (json) => {
-    var userInfo = json.response[0]
+  var response = await $.api.scheduleCall('users.get', { user_ids: uid })
+  var userInfo = response[0]
 
-    var name = userInfo.first_name
-    var surname = userInfo.last_name
+  var name = userInfo.first_name
+  var surname = userInfo.last_name
 
-    $.text('User ID: ' + uid + '\nName: ' + name + ' ' + surname)
-
-    // Because the API request may finish after the handler,
-    // make sure to send() the message
-    $.send()
-  })
-
-  // Prevent the handler from sending the message automatically
-  $.noAutoSend()
+  $.text(`User ID: ${uid}\nName: ${name} ${surname}`)
 }, 'uses VK API to get some information about you')
 
 // When the message contains a word "hi", "hello" or "hey"
