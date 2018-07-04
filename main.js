@@ -14,25 +14,8 @@ var params = {
 
 var bot = new ChatBot(params) // Initialize the bot
 
-bot.on('message_allow', $ => {
-  $.text('Hello, thanks for allowing us to send you messages.')
-  // $.send() is called automatically after the handler
-})
-
 bot.on('message_edit', $ => {
   $.text('You edited a message, now it looks like this: ' + $.msg)
-})
-
-bot.on('message_typing_state', $ => {
-  $.text('Type faster please, I can\'t wait to see your message!')
-})
-
-bot.on('no_match', $ => {
-  $.text("I don't know how to respond.")
-})
-
-bot.on('handler_error', $ => {
-  $.text("Oops, looks like something went wrong.")
 })
 
 // If cmd_prefix is "/", we search for "/help" in the beginning of the message
@@ -45,19 +28,32 @@ bot.cmd('help', $ => {
 }, 'shows the help message')
 
 bot.cmd('keyboard', $ => {
-  var Keyboard = $.Keyboard
-  var Button = $.Button
+  var Keyboard = $.kbd.Keyboard
+  var Button = $.kbd.Button
+  var colors = $.kbd.colors
 
-  // 'true' makes it one time
+  // Set 'true' instead of 'false' to make it disapper after a button was pressed
   var kbd = new Keyboard([
     // Rows
-    [new Button('1'), new Button('2')],
-    [new Button('3'), new Button('4')]
-  ], true)
+    [
+      new Button('Default'),
+      new Button('Primary', colors.primary),
+      new Button('Negative', colors.negative),
+      new Button('Positive', colors.positive)
+    ],
+    [
+      new Button('Maximum rows is 10, columns - 4.')
+    ],
+  ], false)
 
   $.text('Here is your keyboard, as promised.')
   $.keyboard(kbd)
-})
+}, 'demo keyboard')
+
+bot.cmd('rmkbd', $ => {
+  $.text('Ok, ok, no keyboard for you.')
+  $.removeKeyboard()
+}, 'removes keyboard')
 
 bot.cmd('now', $ => {
   // Format time using 'moment' library
@@ -82,6 +78,23 @@ bot.cmd('info', async $ => {
 // Ignoring case with /i
 bot.regex(/h(i|ello|ey)/i, $ => {
   $.text('Hello, I am a test bot. You said: ' + $.msg)
+})
+
+bot.on('no_match', $ => {
+  $.text("I don't know how to respond.")
+})
+
+bot.on('message_allow', $ => {
+  $.text('Hello, thanks for allowing us to send you messages.')
+  // $.send() is called automatically after the handler
+})
+
+bot.on('message_typing_state', $ => {
+  $.text('Type faster please, I can\'t wait to see your message!')
+})
+
+bot.on('handler_error', $ => {
+  $.text("Oops, looks like something went wrong.")
 })
 
 bot.noEventWarnings() // Prevent warnings about missing event handlers
