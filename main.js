@@ -44,6 +44,21 @@ bot.cmd('help', $ => {
   $.attach('photo', 6492, 456240778)
 }, 'shows the help message')
 
+bot.cmd('keyboard', $ => {
+  var Keyboard = $.Keyboard
+  var Button = $.Button
+
+  // 'true' makes it one time
+  var kbd = new Keyboard([
+    // Rows
+    [new Button('1'), new Button('2')],
+    [new Button('3'), new Button('4')]
+  ], true)
+
+  $.text('Here is your keyboard, as promised.')
+  $.keyboard(kbd)
+})
+
 bot.cmd('now', $ => {
   // Format time using 'moment' library
   var now = moment().utc().format('MMMM Do YYYY [(]dddd[)] hh:mm:ss A')
