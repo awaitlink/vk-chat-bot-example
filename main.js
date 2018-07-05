@@ -36,10 +36,10 @@ bot.cmd('keyboard', $ => {
   var kbd = new Keyboard([
     // Rows
     [
-      new Button('Default'),
-      new Button('Primary', colors.primary),
-      new Button('Negative', colors.negative),
-      new Button('Positive', colors.positive)
+      new Button('/now'),
+      new Button('/info', colors.primary),
+      new Button('/rmkbd', colors.negative),
+      new Button('/help', colors.positive)
     ],
     [
       new Button('Maximum rows is 10, columns - 4.')
@@ -64,6 +64,7 @@ bot.cmd('now', $ => {
 
 bot.cmd('info', async $ => {
   var uid = $.obj.from_id
+
   // Call VK API to get information about the user
   var response = await $.api.scheduleCall('users.get', { user_ids: uid })
   var userInfo = response[0]
