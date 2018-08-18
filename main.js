@@ -34,7 +34,7 @@ var kbd = new Keyboard([
   [
     new Button('Maximum rows is 10, columns - 4.')
   ],
-], false) // Set 'true' instead of 'false' to make it disapper after a button was pressed
+], false) // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
 /////////////////////////// THE BEHAVIOR DEFENITIONS ///////////////////////////
 ///////////////////////////         EVENTS           ///////////////////////////
