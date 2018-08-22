@@ -1,4 +1,4 @@
-const vk = require('vk-chat-bot') // vk-chat-bot library
+const vk = require('vk-chat-bot') // vk-chat-bot framework
 const moment = require('moment') // For easy time formatting
 
 ///////////////////////////////// CONFIGURATION ////////////////////////////////
@@ -63,6 +63,10 @@ core.on('message_typing_state', $ => {
 
 core.on('handler_error', $ => {
   $.text("Oops, looks like something went wrong.")
+})
+
+core.on('service_action', $ => {
+  $.text(`Received a service action '${JSON.stringify($.obj.action)}'!`)
 })
 
 //////////////////////////         COMMANDS           //////////////////////////
