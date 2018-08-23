@@ -32,11 +32,17 @@ var kbd = new Keyboard([
     new Button('/help', colors.positive)
   ],
   [
-    new Button('Maximum rows is 10, columns - 4.')
+    new Button('Maximum rows is 10, columns - 4.', colors.default, {a: 'b'})
   ],
 ], false) // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
 /////////////////////////// THE BEHAVIOR DEFENITIONS ///////////////////////////
+//////////////////////////         PAYLOADS           //////////////////////////
+
+core.payload({a: 'b'}, $ => {
+  $.text(`The message '${$.msg}' has a secret payload in it!`)
+})
+
 ///////////////////////////         EVENTS           ///////////////////////////
 
 core.on('start', $ => {
