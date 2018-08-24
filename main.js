@@ -32,15 +32,29 @@ var kbd = new Keyboard([
     new Button('/help', colors.positive)
   ],
   [
-    new Button('Maximum rows is 10, columns - 4.', colors.default, {a: 'b'})
+    new Button('Max rows: 10', colors.default, {a: 'b'}),
+    new Button('Max cols: 4', colors.default, {a: 'b', c: 'd'})
   ],
 ], false) // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
 /////////////////////////// THE BEHAVIOR DEFENITIONS ///////////////////////////
 //////////////////////////         PAYLOADS           //////////////////////////
 
+// Exact payload match
 core.payload({a: 'b'}, $ => {
   $.text(`The message '${$.msg}' has a secret payload in it!`)
+})
+
+// Dynamic payload
+// In this case, the handler will run only if the payload's property `c` contains the value `d`.
+core.payload((payload, parsed) => {
+  if (parsed) { // If the payload is a valid JSON
+    return parsed.c === 'd'
+  } else {
+    return false
+  }
+}, $ => {
+  $.text(`In message '${$.msg}', payload.c is 'd'!`)
 })
 
 ///////////////////////////         EVENTS           ///////////////////////////
