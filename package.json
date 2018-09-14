@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Example chat bot for VK using vk-chat-bot npm package.",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/u32i64/vk-chat-bot-example.git"
@@ -14,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "moment": "^2.22.2",
-    "vk-chat-bot": "^10.5.0"
+    "vk-chat-bot": "^10.5.1"
   }
 }
