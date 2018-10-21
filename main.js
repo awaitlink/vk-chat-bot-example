@@ -1,7 +1,7 @@
 const vk = require('vk-chat-bot') // vk-chat-bot framework
 const moment = require('moment') // For easy time formatting
 
-///////////////////////////////// CONFIGURATION ////////////////////////////////
+// /////////////////////////////// CONFIGURATION ////////////////////////////////
 
 var params = {
   vk_token: process.env.VK_API_KEY, // VK API token
@@ -13,11 +13,11 @@ var params = {
   cmd_prefix: process.env.CMD_PREFIX // Command prefix, optional
 }
 
-//////////////////////////////// CREATE THE BOT ////////////////////////////////
+// ////////////////////////////// CREATE THE BOT ////////////////////////////////
 
 var {bot, core} = vk.bot(params)
 
-/////////////////////////////// CREATE A KEYBOARD //////////////////////////////
+// ///////////////////////////// CREATE A KEYBOARD //////////////////////////////
 
 var Keyboard = vk.kbd.Keyboard
 var Button = vk.kbd.Button
@@ -34,11 +34,11 @@ var kbd = new Keyboard([
   [
     new Button('Max rows: 10', colors.default, {a: 'b'}),
     new Button('Max cols: 4', colors.default, {a: 'b', c: 'd'})
-  ],
+  ]
 ], false) // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
-/////////////////////////// THE BEHAVIOR DEFENITIONS ///////////////////////////
-//////////////////////////         PAYLOADS           //////////////////////////
+// ///////////////////////// THE BEHAVIOR DEFENITIONS ///////////////////////////
+// ////////////////////////         PAYLOADS           //////////////////////////
 
 // Exact payload match
 core.payload({a: 'b'}, $ => {
@@ -57,7 +57,7 @@ core.payload((payload, parsed) => {
   $.text(`In message '${$.msg}', payload.c is 'd'!`)
 })
 
-///////////////////////////         EVENTS           ///////////////////////////
+// /////////////////////////         EVENTS           ///////////////////////////
 
 core.on('start', $ => {
   $.text('Hello, this is an example bot for `vk-chat-bot`!')
@@ -82,14 +82,14 @@ core.on('message_typing_state', $ => {
 })
 
 core.on('handler_error', $ => {
-  $.text("Oops, looks like something went wrong.")
+  $.text('Oops, looks like something went wrong.')
 })
 
 core.on('service_action', $ => {
   $.text(`Received a service action '${JSON.stringify($.obj.action)}'!`)
 })
 
-//////////////////////////         COMMANDS           //////////////////////////
+// ////////////////////////         COMMANDS           //////////////////////////
 
 // If cmd_prefix is "/", we search for "/help" in the beginning of the message
 core.cmd('help', $ => {
@@ -130,7 +130,7 @@ core.cmd('info', async $ => {
   $.text(`User ID: ${uid}\nName: ${name} ${surname}`)
 }, 'uses VK API to get some information about you')
 
-////////////////////////////         REGEX           ///////////////////////////
+// //////////////////////////         REGEX           ///////////////////////////
 
 // When the message contains a word "hi", "hello" or "hey"
 // Ignoring case with /i
@@ -138,8 +138,8 @@ core.regex(/h(i|ello|ey)/i, $ => {
   $.text('Hello, I am a test bot. You said: ' + $.msg)
 })
 
-//////////////////////////////// OTHER CONFIG //////////////////////////////////
+// ////////////////////////////// OTHER CONFIG //////////////////////////////////
 core.noEventWarnings() // Prevent warnings about missing event handlers
 
-/////////////////////////////// START THE BOT //////////////////////////////////
+// ///////////////////////////// START THE BOT //////////////////////////////////
 bot.start()
