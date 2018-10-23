@@ -811,10 +811,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vk-chat-bot@^11.0.1:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/vk-chat-bot/-/vk-chat-bot-11.0.1.tgz#cfc7a440635c5e39120e7c2866997d33fc94683b"
-  integrity sha512-3vk/eXG/RiNbY/0OR1HYeZ3zhYIAc6uDF5EUznfiakn4b6MNSmK5KiIkbb8oSuzS8PoV3I2BBtj8emgBM0tB8w==
+vk-chat-bot@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/vk-chat-bot/-/vk-chat-bot-12.0.0.tgz#47f51cb7e0cc23f53ed6afdd4c0db044dac5d9c5"
+  integrity sha512-HZ0OiYB6SfzuNr7LTNi/llVWhYtz99Azu9038hapltz9sArtxM2J9hZr3YBbxPPK0pZ865lIG885znpgqU/foA==
   dependencies:
     "@babel/polyfill" "^7.0.0"
     "@babel/runtime" "^7.0.0"
