@@ -2,15 +2,24 @@
   "name": "vk-chat-bot-example",
   "version": "1.0.0",
   "description": "Example chat bot for VK using vk-chat-bot npm package.",
-  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/u32i64/vk-chat-bot-example.git"
   },
-  "author": "u32i64",
   "license": "MIT",
+  "author": "u32i64",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint main.js",
+    "prepare": "yarn run lint"
+  },
   "dependencies": {
     "moment": "^2.22.2",
-    "vk-chat-bot": "^12.1.0"
+    "vk-chat-bot": "13.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
