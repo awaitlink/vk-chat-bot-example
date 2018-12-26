@@ -1797,10 +1797,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vk-chat-bot@13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/vk-chat-bot/-/vk-chat-bot-13.0.2.tgz#772ed56a0bc9e6813d1a92ab50b3f5da222451b3"
-  integrity sha512-3or5i1ApoEPjaFl91t49WX17tbzFjVxlcQrqMvKG1zPBdqXNNfXxWsEdrdcmat8syEWGzKmQPjpxR8B35uzlJQ==
+vk-chat-bot@13.0.3:
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/vk-chat-bot/-/vk-chat-bot-13.0.3.tgz#66b386679f531b80393e797d48d73e5b70ea509d"
+  integrity sha512-rUtHHvmGyyztrnDBaPm6AlrurfnyzRTeIMuK8coCng4+M7ZqjR5ytw9IsrkgK2rlyCDKf0etEGlc6Csp6slFrQ==
   dependencies:
     "@babel/polyfill" "^7.0.0"
     "@babel/runtime" "^7.1.2"
