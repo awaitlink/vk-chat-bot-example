@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "moment": "^2.23.0",
-    "vk-chat-bot": "13.0.2"
+    "vk-chat-bot": "13.0.3"
   },
   "devDependencies": {
     "eslint": "^5.11.0",
