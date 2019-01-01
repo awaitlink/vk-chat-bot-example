@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "moment": "^2.23.0",
-    "vk-chat-bot": "13.0.1"
+    "vk-chat-bot": "13.0.3"
   },
   "devDependencies": {
-    "eslint": "^5.11.0",
+    "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
   }
