@@ -14,7 +14,7 @@
     "prepare": "yarn run lint"
   },
   "dependencies": {
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "vk-chat-bot": "13.0.3"
   },
   "devDependencies": {
