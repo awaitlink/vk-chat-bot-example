@@ -11,15 +11,15 @@
   "main": "main.js",
   "scripts": {
     "lint": "eslint main.js",
-    "prepare": "yarn run lint"
+    "prepare": "npm run lint"
   },
   "dependencies": {
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "vk-chat-bot": "13.0.3"
   },
   "devDependencies": {
-    "eslint": "^5.11.1",
+    "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.16.0"
   }
 }
