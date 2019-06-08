@@ -24,14 +24,14 @@ const { colors, Button, Keyboard } = vk.kbd;
 const kbd = new Keyboard([
   // Rows
   [
-    new Button('/now'),
-    new Button('/info', colors.primary),
-    new Button('/rmkbd', colors.negative),
-    new Button('/help', colors.positive),
+    Button.text('/now'),
+    Button.text('/info', colors.primary),
+    Button.text('/rmkbd', colors.negative),
+    Button.text('/help', colors.positive),
   ],
   [
-    new Button('Max rows: 10', colors.default, { a: 'b' }),
-    new Button('Max cols: 4', colors.default, { a: 'b', c: 'd' }),
+    Button.text('Max rows: 10', colors.secondary, { a: 'b' }),
+    Button.text('Max cols: 4', colors.secondary, { a: 'b', c: 'd' }),
   ],
 ], false); // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
