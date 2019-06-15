@@ -19,19 +19,19 @@ const { bot, core } = vk.bot(params);
 
 // ///////////////////////////// CREATE A KEYBOARD //////////////////////////////
 
-const { colors, Button, Keyboard } = vk.kbd;
+const { Color, button, Keyboard } = vk.kbd;
 
 const kbd = new Keyboard([
   // Rows
   [
-    Button.text('/now'),
-    Button.text('/info', colors.primary),
-    Button.text('/rmkbd', colors.negative),
-    Button.text('/help', colors.positive),
+    button.text('/now'),
+    button.text('/info', Color.Primary),
+    button.text('/rmkbd', Color.Negative),
+    button.text('/help', Color.Positive),
   ],
   [
-    Button.text('Max rows: 10', colors.secondary, { a: 'b' }),
-    Button.text('Max cols: 4', colors.secondary, { a: 'b', c: 'd' }),
+    button.text('Max rows: 10', Color.Secondary, { a: 'b' }),
+    button.text('Max cols: 4', Color.Secondary, { a: 'b', c: 'd' }),
   ],
 ], false); // Set 'true' instead of 'false' to make it disappear after a button was pressed
 
