@@ -1,4 +1,4 @@
-const vk = require('vk-chat-bot'); // vk-chat-bot framework
+const vk = require('vk-chat-bot'); // vk-chat-bot package
 const moment = require('moment'); // For easy time formatting
 
 // /////////////////////////////// CONFIGURATION ////////////////////////////////
