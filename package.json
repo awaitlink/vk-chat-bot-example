@@ -14,7 +14,7 @@
     "prepare": "npm run lint"
   },
   "dependencies": {
-    "moment": "^2.28.0",
+    "moment": "^2.29.0",
     "vk-chat-bot": "^16.0.0"
   },
   "devDependencies": {
